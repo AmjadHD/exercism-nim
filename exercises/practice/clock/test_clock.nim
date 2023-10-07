@@ -68,54 +68,54 @@ suite "Create a new clock with an initial time":
 
 suite "Add minutes":
   test "add minutes":
-    check initClock(10, 0) + 3.Minutes == "10:03"
+    check initClock(10, 0) + 3.minutes == "10:03"
 
   test "add no minutes":
-    check initClock(6, 41) + 0.Minutes == "06:41"
+    check initClock(6, 41) + 0.minutes == "06:41"
 
   test "add to next hour":
-    check initClock(0, 45) + 40.Minutes == "01:25"
+    check initClock(0, 45) + 40.minutes == "01:25"
 
   test "add more than one hour":
-    check initClock(10, 0) + 61.Minutes == "11:01"
+    check initClock(10, 0) + 61.minutes == "11:01"
 
   test "add more than two hours with carry":
-    check initClock(0, 45) + 160.Minutes == "03:25"
+    check initClock(0, 45) + 160.minutes == "03:25"
 
   test "add across midnight":
-    check initClock(23, 59) + 2.Minutes == "00:01"
+    check initClock(23, 59) + 2.minutes == "00:01"
 
   test "add more than one day (1500 min = 25 hrs)":
-    check initClock(5, 32) + 1500.Minutes == "06:32"
+    check initClock(5, 32) + 1500.minutes == "06:32"
 
   test "add more than two days":
-    check initClock(1, 1) + 3500.Minutes == "11:21"
+    check initClock(1, 1) + 3500.minutes == "11:21"
 
 
 suite "Subtract minutes":
   test "subtract minutes":
-    check initClock(10, 3) - 3.Minutes == "10:00"
+    check initClock(10, 3) - 3.minutes == "10:00"
 
   test "subtract to previous hour":
-    check initClock(10, 3) - 30.Minutes == "09:33"
+    check initClock(10, 3) - 30.minutes == "09:33"
 
   test "subtract more than an hour":
-    check initClock(10, 3) - 70.Minutes == "08:53"
+    check initClock(10, 3) - 70.minutes == "08:53"
 
   test "subtract across midnight":
-    check initClock(0, 3) - 4.Minutes == "23:59"
+    check initClock(0, 3) - 4.minutes == "23:59"
 
   test "subtract more than two hours":
-    check initClock(0, 0) - 160.Minutes == "21:20"
+    check initClock(0, 0) - 160.minutes == "21:20"
 
   test "subtract more than two hours with borrow":
-    check initClock(6, 15) - 160.Minutes == "03:35"
+    check initClock(6, 15) - 160.minutes == "03:35"
 
   test "subtract more than one day (1500 min = 25 hrs)":
-    check initClock(5, 32) - 1500.Minutes == "04:32"
+    check initClock(5, 32) - 1500.minutes == "04:32"
 
   test "subtract more than two days":
-    check initClock(2, 20) - 3000.Minutes == "00:20"
+    check initClock(2, 20) - 3000.minutes == "00:20"
 
 
 suite "Compare two clocks for equality":
